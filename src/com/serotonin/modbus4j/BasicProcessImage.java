@@ -50,6 +50,7 @@ public class BasicProcessImage implements ProcessImage {
     private final Map<Integer, Boolean> inputs = new HashMap<>();
     private final Map<Integer, Short> holdingRegisters = new HashMap<>();
     private final Map<Integer, Short> inputRegisters = new HashMap<>();
+    private final Map<Integer, byte[]> registerDescription = new HashMap<>();
     private final List<ProcessImageListener> writeListeners = new ArrayList<>();
     private byte exceptionStatus;
 
@@ -61,6 +62,7 @@ public class BasicProcessImage implements ProcessImage {
     public BasicProcessImage(int slaveId) {
         ModbusUtils.validateSlaveId(slaveId, false);
         this.slaveId = slaveId;
+        registerDescription.put(1, new byte[] {2,3,5,3});
     }
 
     /** {@inheritDoc} */
@@ -479,6 +481,14 @@ public class BasicProcessImage implements ProcessImage {
     }
 
     //
+    // Register Description
+    /** {@inheritDoc} */
+    @Override
+    public synchronized byte[] getRegisterDescription(int offset) throws IllegalDataAddressException {
+        return getByteArray(offset, registerDescription);
+    }
+    
+    //
     // Holding registers
     /** {@inheritDoc} */
     @Override
@@ -538,6 +548,16 @@ public class BasicProcessImage implements ProcessImage {
     //
     // Private
     //
+    private byte[] getByteArray(int offset, Map<Integer, byte[]> map) throws IllegalDataAddressException {
+        byte[] value = map.get(offset);
+        if (value == null) {
+            if (allowInvalidAddress)
+                return new byte[invalidAddressValue]; 
+            throw new IllegalDataAddressException();
+        }
+        return value;
+    }
+    
     private short getShort(int offset, Map<Integer, Short> map) throws IllegalDataAddressException {
         Short value = map.get(offset);
         if (value == null) {

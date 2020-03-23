@@ -76,4 +76,10 @@ public class ReadInputRegistersRequest extends ReadNumericRequest {
         return "ReadInputRegistersRequest [slaveId=" + slaveId + ", getFunctionCode()=" + getFunctionCode()
                 + ", toString()=" + super.toString() + "]";
     }
+
+	@Override
+	protected byte[] getRegisterDescription(ProcessImage processImage, int index) throws ModbusTransportException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

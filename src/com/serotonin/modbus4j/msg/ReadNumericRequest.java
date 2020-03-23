@@ -77,6 +77,18 @@ abstract public class ReadNumericRequest extends ModbusRequest {
     }
 
     /**
+     * <p>getDescriptors.</p>
+     *
+     * @param processImage a {@link com.serotonin.modbus4j.ProcessImage} object.
+     * @return an array of {@link byte} objects.
+     * @throws com.serotonin.modbus4j.exception.ModbusTransportException if any.
+     */
+    protected byte[] getDescriptors(ProcessImage processImage) throws ModbusTransportException {
+
+        return getRegisterDescription(processImage, startOffset);
+    }
+    
+    /**
      * <p>getData.</p>
      *
      * @param processImage a {@link com.serotonin.modbus4j.ProcessImage} object.
@@ -93,6 +105,16 @@ abstract public class ReadNumericRequest extends ModbusRequest {
         return convertToBytes(data);
     }
 
+    /**
+     * <p>getRegisterDescription.</p>
+     *
+     * @param processImage a {@link com.serotonin.modbus4j.ProcessImage} object.
+     * @param index a int.
+     * @return a short.
+     * @throws com.serotonin.modbus4j.exception.ModbusTransportException if any.
+     */
+    abstract protected byte[] getRegisterDescription(ProcessImage processImage, int index) throws ModbusTransportException;
+    
     /**
      * <p>getNumeric.</p>
      *

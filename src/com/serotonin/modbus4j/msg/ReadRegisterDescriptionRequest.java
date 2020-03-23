@@ -51,18 +51,25 @@ public class ReadRegisterDescriptionRequest extends ReadNumericRequest {
     /** {@inheritDoc} */
     @Override
     public byte getFunctionCode() {
-        return FunctionCode.READ_HOLDING_REGISTERS;
+        return FunctionCode.READ_REGISTER_DESCRIPTION;
     }
 
     @Override
     ModbusResponse handleImpl(ProcessImage processImage) throws ModbusTransportException {
-        return new ReadHoldingRegistersResponse(slaveId, getData(processImage));
+        return new ReadHoldingRegistersResponse(slaveId, getDescriptors(processImage));
     }
 
     /** {@inheritDoc} */
     @Override
+    protected byte[] getRegisterDescription(ProcessImage processImage, int index) throws ModbusTransportException {
+        return processImage.getRegisterDescription(index);
+    }
+    
+    /** {@inheritDoc} */
+    @Override
     protected short getNumeric(ProcessImage processImage, int index) throws ModbusTransportException {
-        return processImage.getHoldingRegister(index);
+    	// Unimplemented
+        return 0;
     }
 
     @Override
