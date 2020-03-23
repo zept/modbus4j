@@ -56,7 +56,7 @@ public class ReadRegisterDescriptionRequest extends ReadNumericRequest {
 
     @Override
     ModbusResponse handleImpl(ProcessImage processImage) throws ModbusTransportException {
-        return new ReadHoldingRegistersResponse(slaveId, getDescriptors(processImage));
+        return new ReadRegisterDescriptionResponse(slaveId, getDescriptors(processImage));
     }
 
     /** {@inheritDoc} */
@@ -74,13 +74,13 @@ public class ReadRegisterDescriptionRequest extends ReadNumericRequest {
 
     @Override
     ModbusResponse getResponseInstance(int slaveId) throws ModbusTransportException {
-        return new ReadHoldingRegistersResponse(slaveId);
+        return new ReadRegisterDescriptionResponse(slaveId);
     }
 
     /** {@inheritDoc} */
     @Override
     public String toString() {
-        return "ReadHoldingRegistersRequest [slaveId=" + slaveId + ", getFunctionCode()=" + getFunctionCode()
+        return "ReadRegisterDescriptionRequest [slaveId=" + slaveId + ", getFunctionCode()=" + getFunctionCode()
                 + ", toString()=" + super.toString() + "]";
     }
 }
