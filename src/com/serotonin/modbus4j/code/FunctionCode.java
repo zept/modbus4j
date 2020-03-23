@@ -49,7 +49,9 @@ public class FunctionCode {
     public static final byte REPORT_SLAVE_ID = 17;
     /** Constant <code>WRITE_MASK_REGISTER=22</code> */
     public static final byte WRITE_MASK_REGISTER = 22;
-
+    /** Constant <code>READ_REGISTER_DESCRIPTION=71</code> */
+    public static final byte READ_REGISTER_DESCRIPTION = 71;
+    
     /**
      * <p>toString.</p>
      *
