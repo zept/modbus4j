@@ -96,13 +96,21 @@ public interface ProcessImage {
     // /
     //
     /**
-     * Returns the current value of the holding register for the given offset.
+     * Returns the current value of the register description for the given offset.
      *
      * @param offset a int.
      * @return the value of the register
      * @throws com.serotonin.modbus4j.exception.IllegalDataAddressException if any.
      */
     byte[] getRegisterDescription(int offset) throws IllegalDataAddressException;
+    
+    /**
+     * Used internally for setting the value of the register description.
+     *
+     * @param offset a int.
+     * @param value a byte array.
+     */
+    void setRegisterDescription(int offset, byte[] value);
     
     //
     // /

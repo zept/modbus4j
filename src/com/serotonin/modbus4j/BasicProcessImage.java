@@ -488,6 +488,16 @@ public class BasicProcessImage implements ProcessImage {
         return getByteArray(offset, registerDescription);
     }
     
+    /** {@inheritDoc} */
+    @Override
+    public synchronized void setRegisterDescription(int offset, byte[] value) {
+        validateOffset(offset);
+        
+        
+        
+        registerDescription.put(offset, value);
+    }
+    
     //
     // Holding registers
     /** {@inheritDoc} */
