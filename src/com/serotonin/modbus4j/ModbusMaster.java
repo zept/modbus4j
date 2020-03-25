@@ -45,6 +45,7 @@ import com.serotonin.modbus4j.msg.ReadCoilsRequest;
 import com.serotonin.modbus4j.msg.ReadDiscreteInputsRequest;
 import com.serotonin.modbus4j.msg.ReadHoldingRegistersRequest;
 import com.serotonin.modbus4j.msg.ReadInputRegistersRequest;
+import com.serotonin.modbus4j.msg.ReadRegisterDescriptionRequest;
 import com.serotonin.modbus4j.msg.ReadResponse;
 import com.serotonin.modbus4j.msg.WriteCoilRequest;
 import com.serotonin.modbus4j.msg.WriteCoilsRequest;
@@ -300,6 +301,24 @@ abstract public class ModbusMaster extends Modbus {
         }
         return true;
     }
+    
+    /**
+     * <p>testSlaveNode.</p>
+     *
+     * @param node a int.
+     * @return a boolean.
+     */
+    public ModbusResponse getSlaveDescription(int node, int address) {
+    	ModbusResponse mr;
+        try {
+            mr = send(new ReadRegisterDescriptionRequest(node, address, 1));
+        }
+        catch (ModbusTransportException e) {
+            // If there was a transport exception, there's no node there.
+            return null;
+        }
+        return mr;
+    }
 
     /**
      * <p>Getter for the field <code>retries</code>.</p>
@@ -498,6 +517,8 @@ abstract public class ModbusMaster extends Modbus {
             request = new ReadHoldingRegistersRequest(slaveId, startOffset, length);
         else if (functionGroup.getFunctionCode() == FunctionCode.READ_INPUT_REGISTERS)
             request = new ReadInputRegistersRequest(slaveId, startOffset, length);
+        else if (functionGroup.getFunctionCode() == FunctionCode.READ_REGISTER_DESCRIPTION)
+            request = new ReadRegisterDescriptionRequest(slaveId, startOffset, length);
         else
             throw new RuntimeException("Unsupported function");
 

@@ -79,6 +79,8 @@ abstract public class ModbusResponse extends ModbusMessage {
             response = new ReportSlaveIdResponse(slaveId);
         else if (functionCode == FunctionCode.WRITE_MASK_REGISTER)
             response = new WriteMaskRegisterResponse(slaveId);
+        else if (functionCode == FunctionCode.READ_REGISTER_DESCRIPTION)
+            response = new ReadRegisterDescriptionResponse(slaveId);
         else
             throw new IllegalFunctionException(functionCode, slaveId);
 

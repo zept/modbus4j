@@ -17,25 +17,15 @@ public class ListenerTest3 {
     static float ir1Value = -100;
 
     public static void main(String[] args) throws Exception {
-        // SerialParameters params = new SerialParameters();
-        // params.setCommPortId("COM1");
-        // params.setPortOwnerName("dufus");
-        // params.setBaudRate(9600);
-
-        // IpParameters params = new IpParameters();
-        // params.setHost(host)
 
         ModbusFactory modbusFactory = new ModbusFactory();
-        // ModbusListener listener = modbusFactory.createRtuListener(processImage, 31, params, false);
-        // ModbusListener listener = modbusFactory.createAsciiListener(processImage, 31, params);
         final ModbusSlaveSet listener = modbusFactory.createTcpSlave(false);
-        // ModbusSlave listener = modbusFactory.createUdpSlave(processImage, 31);
 
         // Add a few slave process images to the listener.
         listener.addProcessImage(getModscanProcessImage(1));
-        //        listener.addProcessImage(getModscanProcessImage(2));
+        listener.addProcessImage(getModscanProcessImage(2));
         listener.addProcessImage(getModscanProcessImage(3));
-        //        listener.addProcessImage(getModscanProcessImage(5));
+        listener.addProcessImage(getModscanProcessImage(5));
         listener.addProcessImage(getModscanProcessImage(9));
 
         // When the "listener" is started it will use the current thread to run. So, if an exception is not thrown
@@ -99,7 +89,7 @@ public class ListenerTest3 {
         processImage.setInvalidAddressValue(Short.MIN_VALUE);
 
         
-        processImage.setRegisterDescription(1, SetDescriptionsByteConvertion.createByteArray(3, 1, 41, 100, "PIONJAREN_BY75_VENT_LB01_COOLINGPUMP_CMD", "Givarfel tilluftsgivare LB01"));
+        processImage.setRegisterDescription(1, SetDescriptionsByteConvertion.createByteArray(3, 1, 41, 100, "123", "123"));
         processImage.setRegisterDescription(2, SetDescriptionsByteConvertion.createByteArray(3, 2, 42, 1000, "PIONJAREN_BY75_VENT_LB01_EXCHANGER_PV", "Matvärde"));
         processImage.setRegisterDescription(3, SetDescriptionsByteConvertion.createByteArray(4, 1, 77, 1, "PIONJAREN_BY75_VENT_LB01_EXCHANGER_PV1", "Borvärde Avfrostning"));
         processImage.setRegisterDescription(4, SetDescriptionsByteConvertion.createByteArray(4, 2, 11, -64, "PIONJAREN_BY75_VENT_LB01_SUPPLYFANFREQUENCYCTRL_OP", "Givarfel utegivare LB01"));
