@@ -89,16 +89,16 @@ public class ListenerTest3 {
         processImage.setInvalidAddressValue(Short.MIN_VALUE);
 
         
-        processImage.setRegisterDescription(1, SetDescriptionsByteConvertion.createByteArray(3, 1, 41, 100, "123", "123"));
-        processImage.setRegisterDescription(2, SetDescriptionsByteConvertion.createByteArray(3, 2, 42, 1000, "PIONJAREN_BY75_VENT_LB01_EXCHANGER_PV", "Matvärde"));
-        processImage.setRegisterDescription(3, SetDescriptionsByteConvertion.createByteArray(4, 1, 77, 1, "PIONJAREN_BY75_VENT_LB01_EXCHANGER_PV1", "Borvärde Avfrostning"));
-        processImage.setRegisterDescription(4, SetDescriptionsByteConvertion.createByteArray(4, 2, 11, -64, "PIONJAREN_BY75_VENT_LB01_SUPPLYFANFREQUENCYCTRL_OP", "Givarfel utegivare LB01"));
-        processImage.setRegisterDescription(5, SetDescriptionsByteConvertion.createByteArray(1, 100, 1, 100, "PIONJAREN_BY75_VENT_LB01_EXTRACTFAN_AD", "Larmfordrojning Givarfel"));
-        processImage.setRegisterDescription(6, SetDescriptionsByteConvertion.createByteArray(1, 101, 1, 100, "PIONJAREN_BY75_VENT_LB01_EXTRACTFANFREQUENCYCTRL_PV", "Givarfel returvattengivare LB01"));
-        processImage.setRegisterDescription(7, SetDescriptionsByteConvertion.createByteArray(0, 7, 0, 100, "PIONJAREN_BY75_VENT_LB01_TIMER2_ACK", "Grans driftindikering på tryck"));
-        processImage.setRegisterDescription(8, SetDescriptionsByteConvertion.createByteArray(0, 6, 0, 100, "PIONJAREN_BY75_VENT_LB01_SMOKEDETECTOR_AD", "Pump motionering veckodag"));
-        processImage.setRegisterDescription(9, SetDescriptionsByteConvertion.createByteArray(4, 10, 10, 100, "PIONJAREN_BY75_VENT_TK1_CT2", "Driftfel pump kylbatteri LB01"));
-        processImage.setRegisterDescription(10, SetDescriptionsByteConvertion.createByteArray(4, 11, 10, 100, "PIONJAREN_BY75_VENT_LB01_RETURNWATERTEMP_SP1", "Lag verkningsgrad varmevaxlare LB01"));
+        processImage.setRegisterDescription(1, SetDescriptionsByteConvertion.createByteArray(3, 1, 41, 32, 100, "123", "123"));
+        processImage.setRegisterDescription(2, SetDescriptionsByteConvertion.createByteArray(3, 2, 42, 32, 1000, "PIONJAREN_BY75_VENT_LB01_EXCHANGER_PV", "Matvärde"));
+        processImage.setRegisterDescription(3, SetDescriptionsByteConvertion.createByteArray(4, 1, 77, 32, 1, "PIONJAREN_BY75_VENT_LB01_EXCHANGER_PV1", "Borvärde Avfrostning"));
+        processImage.setRegisterDescription(4, SetDescriptionsByteConvertion.createByteArray(4, 2, 11, 32, -64, "PIONJAREN_BY75_VENT_LB01_SUPPLYFANFREQUENCYCTRL_OP", "Givarfel utegivare LB01"));
+        processImage.setRegisterDescription(5, SetDescriptionsByteConvertion.createByteArray(1, 100, 1, 32, 100, "PIONJAREN_BY75_VENT_LB01_EXTRACTFAN_AD", "Larmfordrojning Givarfel"));
+        processImage.setRegisterDescription(6, SetDescriptionsByteConvertion.createByteArray(1, 101, 1, 32, 100, "PIONJAREN_BY75_VENT_LB01_EXTRACTFANFREQUENCYCTRL_PV", "Givarfel returvattengivare LB01"));
+        processImage.setRegisterDescription(7, SetDescriptionsByteConvertion.createByteArray(0, 7, 0, 32, 100, "PIONJAREN_BY75_VENT_LB01_TIMER2_ACK", "Grans driftindikering på tryck"));
+        processImage.setRegisterDescription(8, SetDescriptionsByteConvertion.createByteArray(0, 6, 0, 32, 100, "PIONJAREN_BY75_VENT_LB01_SMOKEDETECTOR_AD", "Pump motionering veckodag"));
+        processImage.setRegisterDescription(9, SetDescriptionsByteConvertion.createByteArray(4, 10, 10, 32, 100, "PIONJAREN_BY75_VENT_TK1_CT2", "Driftfel pump kylbatteri LB01"));
+        processImage.setRegisterDescription(10, SetDescriptionsByteConvertion.createByteArray(4, 11, 10, 32, 100, "PIONJAREN_BY75_VENT_LB01_RETURNWATERTEMP_SP1", "Lag verkningsgrad varmevaxlare LB01"));
         
         processImage.setCoil(10, true);
         processImage.setCoil(11, false);

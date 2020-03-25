@@ -7,10 +7,10 @@ public class SetDescriptionsByteConvertion {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		createByteArray(3, 23, 6, 1000, "test", "test");
+		createByteArray(3, 23, 6, 43, 1000, "test", "test");
 	}
 	
-    static byte[] createByteArray(int functionCode, int address, int unit, int scaling, String tagName, String description) {
+    static byte[] createByteArray(int functionCode, int address, int unit, int format, int scaling, String tagName, String description) {
 
    
 //		TODO: Validate input.
@@ -22,6 +22,7 @@ public class SetDescriptionsByteConvertion {
     	buffer.put((byte) functionCode); 	// 1-byte
     	buffer.putShort((short) address);	// 2-byte
     	buffer.put((byte) unit);			// 1-byte
+    	buffer.put((byte) format);			// 1-byte
     	buffer.putShort((short) scaling);	// 2-byte
     	buffer.put(tag);					// variable length
     	buffer.put(desc);					// variable length
