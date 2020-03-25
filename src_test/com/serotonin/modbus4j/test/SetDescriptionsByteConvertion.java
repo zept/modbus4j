@@ -25,6 +25,7 @@ public class SetDescriptionsByteConvertion {
     	buffer.put((byte) format);			// 1-byte
     	buffer.putShort((short) scaling);	// 2-byte
     	buffer.put(tag);					// variable length
+    	buffer.put((byte) 124);				// delimiter between tag-name and description
     	buffer.put(desc);					// variable length
     	
     	// Trim, rewind and copy array.
