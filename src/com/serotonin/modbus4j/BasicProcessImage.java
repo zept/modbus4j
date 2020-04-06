@@ -492,8 +492,7 @@ public class BasicProcessImage implements ProcessImage {
     @Override
     public synchronized void setRegisterDescription(int offset, byte[] value) {
         validateOffset(offset);
-        
-        
+        validateByteSize(value);
         
         registerDescription.put(offset, value);
     }
@@ -591,6 +590,11 @@ public class BasicProcessImage implements ProcessImage {
     private void validateOffset(int offset) {
         if (offset < 0 || offset > 65535)
             throw new ModbusIdException("Invalid offset: " + offset);
+    }
+    
+    private void validateByteSize(byte[] value) {
+        if (value.length < 7 || value.length > 250)
+            throw new ModbusIdException("Invalid byte array length: " + value);
     }
 
     private void validateBit(int bit) {
