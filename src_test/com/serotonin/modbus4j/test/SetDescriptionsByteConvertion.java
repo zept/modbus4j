@@ -31,6 +31,7 @@ public class SetDescriptionsByteConvertion {
     	buffer.put(unitByte);				// variable length
     	buffer.put((byte) tagByte.length);	// Tag length
     	buffer.put(tagByte);				// variable length
+    	buffer.put((byte) descByte.length);	// Tag length
     	buffer.put(descByte);				// variable length
     	
     	// Trim, rewind and copy array.
