@@ -22,7 +22,7 @@ public class SetDescriptionsByteConvertion {
     	byte[] tagByte = tagName.getBytes(StandardCharsets.US_ASCII);
     	byte[] descByte = description.getBytes(StandardCharsets.US_ASCII);
 
-    	ByteBuffer buffer = ByteBuffer.allocate(253);
+    	ByteBuffer buffer = ByteBuffer.allocate(250);
     	buffer.put((byte) functionCode); 	// 1-byte
     	buffer.putShort((short) address);	// 2-byte
     	buffer.put((byte) format);			// 1-byte
