@@ -43,14 +43,14 @@ public class ListenerTest3 {
             }
         }).start();
 
-        while (true) {
-            synchronized (listener) {
-                listener.wait(200);
-            }
-
-            for (ProcessImage processImage : listener.getProcessImages())
-                updateProcessImage((BasicProcessImage) processImage);
-        }
+//        while (true) {
+//            synchronized (listener) {
+//                listener.wait(200);
+//            }
+//
+//            for (ProcessImage processImage : listener.getProcessImages())
+//                updateProcessImage((BasicProcessImage) processImage);
+//        }
     }
 
     static void updateProcessImage(BasicProcessImage processImage) throws IllegalDataAddressException {
